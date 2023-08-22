@@ -29,6 +29,17 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
 
+
+
+
+
+
+
+
+
+
+
+
 .home-button {
 	position: absolute;
 	top: 10px; /* Adjust as needed */
@@ -36,6 +47,39 @@ footer, header, hgroup, menu, nav, section {
 	text-decoration: none;
 	font-weight: bold;
 }
+
+
+
+
+.scroll-to-top {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 99;
+    font-size: 24px;
+    border: none;
+    outline: none;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.scroll-to-top:hover {
+    background-color: #e0f0ec;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 body {
@@ -82,16 +126,6 @@ input, select, textarea {
 }
 
 /* Basic */
-
-#scrollToTopBtn {
-display: none;
-position: fixed;
-}
-
-#scrollToTopBtn:hover {
-background-color: #333;
-}
-
 
 	@-ms-viewport {
 		width: device-width;
