@@ -38,7 +38,16 @@ footer, header, hgroup, menu, nav, section {
 
 
 
-
+/*
+ * the parent 'header' element 
+ * the home button sits within 
+ *
+ */
+	
+.c-header {
+	position: fixed;
+	z-index: 50;
+}
 
 .home-button {
 	position: absolute;

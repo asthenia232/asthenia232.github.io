@@ -60,7 +60,7 @@
 	</style>
 	</head>
 	<body class="is-preload">
-		<header>
+		<header class="c-header">
 			<a href="index.html" class="home-button">Home</a>
 		</header>
 				
@@ -1517,56 +1517,54 @@ def pearsons_coefficient(csv_file, column):
 	</div>
 </section>
 
+<!-- Footer -->
+	<footer class="wrapper style1 align-center">
+		<div class="inner">
+			<ul class="icons">
+				<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="https://www.linkedin.com/in/josh-ireland-61b789217/" class="icon brands style2 fa-linkedin-in" target="_blank"><span class="label">LinkedIn</span></a></li>
+				<li><a href="https://github.com/asthenia232/" class="icon brands style2 fa-github" target="_blank"><span class="label">Email</span></a></li>
+				
+			</ul>
+		</div>
+	</footer>
 
+</div>
 
+<button id="scrollToTopBtn" class="scroll-to-top">↑</button>
 
-				<!-- Footer -->
-					<footer class="wrapper style1 align-center">
-						<div class="inner">
-							<ul class="icons">
-								<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="https://www.linkedin.com/in/josh-ireland-61b789217/" class="icon brands style2 fa-linkedin-in" target="_blank"><span class="label">LinkedIn</span></a></li>
-								<li><a href="https://github.com/asthenia232/" class="icon brands style2 fa-github" target="_blank"><span class="label">Email</span></a></li>
-								
-							</ul>
-						</div>
-					</footer>
-
-			</div>
-	<button id="scrollToTopBtn" class="scroll-to-top">↑</button>
-
-		<!-- Scripts -->
-			
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="assets/js/script.js"></script>
-			<script src="assets/js/prism.js"></script>
-			<script>
-				const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-			
-				// Show the button when user scrolls down
-				window.addEventListener('scroll', () => {
-					if (window.scrollY > 300) {
-						scrollToTopBtn.style.display = 'block';
-					} else {
-						scrollToTopBtn.style.display = 'none';
-					}
-				});
-			
-				// Scroll to top when button is clicked
-				scrollToTopBtn.addEventListener('click', () => {
-					window.scrollTo({ top: 0, behavior: 'smooth' });
-				});
-			</script>
-				// Initialize Prism
-				Prism.highlightAll();
-			</script>
-			
+<!-- Scripts -->
+	
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/script.js"></script>
+	<script src="assets/js/prism.js"></script>
+	<script>
+		const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+	
+		// Show the button when user scrolls down
+		window.addEventListener('scroll', () => {
+			if (window.scrollY > 300) {
+				scrollToTopBtn.style.display = 'block';
+			} else {
+				scrollToTopBtn.style.display = 'none';
+			}
+		});
+	
+		// Scroll to top when button is clicked
+		scrollToTopBtn.addEventListener('click', () => {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		});
+	</script>
+		// Initialize Prism
+		Prism.highlightAll();
+	</script>
+	
 
 
 	</body>
