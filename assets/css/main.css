@@ -33,7 +33,10 @@ footer, header, hgroup, menu, nav, section {
 
 
 
-
+/* zoom on hover 
+*
+*
+*/
 
 
 
@@ -61,23 +64,26 @@ footer, header, hgroup, menu, nav, section {
 
 
 .scroll-to-top {
-    display: none;
+    display: block;
+    text-align: center;
+    line-height: 50px;
     position: fixed;
-    top: 20px;
-    left: 20px;
+    width: 60px;
+    height: 50px;
+    top: 60px;
+    left: 1px;
     z-index: 99;
-    font-size: 24px;
+    font-size: 26px;
+    white-space: normal;
     border: none;
     outline: none;
-    background-color: #333;
+    background-color: #dadada00;
     color: #fff;
     cursor: pointer;
-    padding: 10px;
-    border-radius: 50%;
+    margin: 1px;
 }
-
 .scroll-to-top:hover {
-    background-color: #e0f0ec;
+    background-color: #e0f0ec00;
 }
 
 
@@ -93,6 +99,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
+	
 }
 
 ol, ul {
@@ -2688,17 +2695,19 @@ input, select, textarea {
 	}
 
 /* Image */
-
+	
 	.image {
 		border: 0;
 		border-radius: 4px;
 		display: inline-block;
 		position: relative;
+		
 	}
 
 		.image img {
 			display: block;
 			border-radius: 4px;
+			
 		}
 
 		.image.left, .image.right {
