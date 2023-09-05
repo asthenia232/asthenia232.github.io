@@ -54,8 +54,8 @@ footer, header, hgroup, menu, nav, section {
 
 .home-button {
 	position: absolute;
-	top: 10px; /* Adjust as needed */
-	left: 10px; /* Adjust as needed */
+	top: 8px;
+	left: 14px;
 	text-decoration: none;
 	font-weight: bold;
 }
@@ -64,23 +64,24 @@ footer, header, hgroup, menu, nav, section {
 
 
 .scroll-to-top {
-    display: block;
-    text-align: center;
-    line-height: 50px;
-    position: fixed;
-    width: 60px;
-    height: 50px;
-    top: 60px;
-    left: 1px;
-    z-index: 99;
-    font-size: 26px;
-    white-space: normal;
-    border: none;
-    outline: none;
-    background-color: #dadada00;
-    color: #fff;
-    cursor: pointer;
-    margin: 1px;
+	display: block;
+	text-align: center;
+	line-height: 50px;
+	position: fixed;
+	width: 68px;
+	height: 50px;
+	bottom: 10px;
+	left: 6px;
+	z-index: 99;
+	font-size: 26px;
+	white-space: normal;
+	border: none;
+	outline: none;
+	background-color: #dadada00;
+	color: #fff;
+	padding: 0 .5em 0 0.65em;
+	cursor: pointer;
+	margin: 6px;
 }
 .scroll-to-top:hover {
     background-color: #e0f0ec00;
