@@ -1,0 +1,461 @@
+<!DOCTYPE HTML>
+<!--
+	Story by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Understanding Customer Attrition in Banking</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css" rel="stylesheet">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link href="assets/css/prism.css" rel="stylesheet">
+		<style>
+			.code-container {
+    max-width: auto; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the code block horizontally */
+	font-size: ;
+}
+		</style>
+
+		<style>
+			{
+				Scroll-behaviour: smooth;
+			}
+		</style>
+		<style>
+.image-with-text {
+      width: 100%;
+      overflow: hidden; /* Clear floats */
+    }
+
+    .image-with-text img {
+      float: left; /* Float the image to the left */
+      margin-right: 10px;
+    }
+
+    .image-with-text p {
+      margin-left: 10px; /* Create a margin to give space for the wrapped text */
+    }
+	</style>
+	<style>
+		<style>
+  .large-image {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
+<style>
+	.image-container {
+  display: flex;
+}
+
+.image-container img {
+  max-width: 600px; /* Ensure images don't exceed their container */
+  margin-right: 10px; /* Add some spacing between images */
+}
+	</style>
+	</head>
+	<body class="is-preload">
+		<header class="c-header">
+			<a href="index.html" class="home-button">Home</a>
+		</header>
+				
+		<!-- Wrapper -->
+			<div id="wrapper" class="divided">
+
+				<!-- One -->
+				<section class="banner style5 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right onscroll-content-fade-down">
+					<div class="content">
+						
+						<h1>Customer Churn</h1>
+							<p class="major">Understanding Customer Attrition in Banking</p>
+							<p class="minor">Understanding and predicting customer churn is pivotal for banks in proactively managing customer relationships, improving satisfaction, and reducing revenue loss. By identifying customers at higher risk of churning, banks can implement targeted retention strategies, personalized marketing, and enhanced customer service to foster loyalty.</p>
+							<p class="minor">The customer churn rate serves as a crucial business metric for banks, indicating the rate at which customers disengage from banking services. This metric is significant because the cost of retaining existing customers is notably lower than acquiring new ones. Consequently, prioritizing customer retention not only minimizes revenue loss but also fuels profit growth. In essence, effective management of customer churn becomes a linchpin in achieving sustained customer satisfaction and financial success for banks.</p>
+							
+						</ul>
+						<div class="social-icons">
+							<ul class="icons">
+								<li><a href="https://github.com/asthenia232/CustomerChurn" class="icon brands style2 fa-github" target="_blank"><span class="label">Github</span></a></li>
+								
+																
+							</ul>
+						</div>
+					</div>
+					<div class="image">
+						<img src="images/banner.jpg" alt="" />
+					</div>
+				</section>
+
+
+
+				<!-- Two -->
+				
+				<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="data-preprocessing">
+					<div class="content">
+						<h2>Exploratory Analysis of Distribution</h2>
+						
+						<ul class="actions stacked">
+							<li><a href="https://github.com/asthenia232/CustomerChurn/blob/main/main.py" class="button" target="_blank">View Source Code</a></li>
+						</ul>
+						<br>
+						<br>
+						<p>In this section, we'll take a closer look at the distribution of various columns in our bank churn dataset. Utilizing Python code, we'll examine key variables such as credit scores, ages, account balances, and product usage. This analytical approach allows us to uncover patterns and insights that go beyond raw numbers, providing a clear understanding of customer behaviors and setting the foundation for informed decision-making.</p>
+						<p class="minor">
+						<pre class="code-container">
+							<code class="language-Python">
+	import csv
+	import pandas as pd
+	import matplotlib.pyplot as plt
+	import seaborn as sns
+	
+	# Load Data
+	filename = 'data/BankCustomerChurnPrediction.csv'
+	data = pd.read_csv(filename)
+	df = pd.DataFrame(data)
+	pd.set_option("display.max_columns", None)
+	pd.set_option("display.max_rows", None)
+	
+	# Initial data exploration + null value check
+	print(df.isnull().sum())
+	""">> customer_id         0
+	credit_score        0
+	country             0
+	gender              0
+	age                 0
+	tenure              0
+	balance             0
+	products_number     0
+	credit_card         0
+	active_member       0
+	estimated_salary    0
+	churn               0
+	"""
+	
+	# Check the amount of columns and rows
+	print(df.shape)
+	# >> (10000, 12)
+			
+	print(df.info())
+
+	print(df.describe())
+	
+	# Cursory glance at snippet of table
+	print(df.head(15))
+	
+	# Complete list of column names
+	with open(filename) as f:
+		reader = csv.reader(f)
+		header_row = next(reader)
+	print(header_row)
+
+
+	# Check the headers of columns
+	print(df.columns)
+	"""Index(['customer_id', 'credit_score', 'country', 'gender', 'age', 'tenure',
+	'balance', 'products_number', 'credit_card', 'active_member',
+	'estimated_salary', 'churn']"""							
+	
+	
+
+						</code>
+						</pre>
+
+						<br>
+						<br>
+						<br>
+						This dataset is already cleaned and contains no missing values or duplication. It is ready for basic views of it's distribution. Provided below is an example of the code needed to visualise the distributions of important variables using Matplotlib.
+					</p>
+					<p>
+						
+
+					</p>
+					<br>
+					<p>
+					<pre class="code-container">
+						<code class="language-Python">
+	# Visualisation of data
+	# Age Histogram
+	plt.hist(df['age'], bins=20, color='skyblue', edgecolor='black')
+	plt.xlabel('Age')
+	plt.ylabel('Count')
+	plt.title('Distribution of Age')
+	plt.show()
+	
+	# Gender bar Graph
+	plt.figure(figsize=(8, 6))
+	sns.countplot(x='gender', data=df, palette='pastel')
+	plt.title('Distribution of Gender')
+	plt.show()
+	
+	# Country plot
+	plt.figure(figsize=(8, 6))
+	sns.countplot(x='country', data=df, palette='pastel')
+	plt.title('Distribution of Country')
+	plt.show()
+							</code>
+					</pre>
+					</p>
+					<br>
+					<br>
+					<p> Some of the more interesting resulting distributions are provided below. </p>
+
+
+
+
+
+					
+							<p class="image-container"> 
+								<img src="images/graph images/DistAge.png" alt="distribution_of_ages"> <img src="images/graph images/DistGender.png" alt="dist_gender"> 
+							</p>
+							<p class="image-container">
+								<img src="images/graph images/DistBalance.png" alt="dist_balance"> 
+								<img src="images/graph images/DistCountry.png" alt="dist_country">
+								
+									
+								</p>
+								<p class="image-container">
+									<img src="images/graph images/DistCredit.png" alt="dist_credit">
+									<img src="images/graph images/DistSalary.png" alt="dist_salary">
+								</p>
+							<p>
+								As this data is looking at banking customers and products, its important to consider how this may impact the distributions observed. These distributions indicate a mostly male population from Europe between the ages of 30-40. Our data also indicates a skewed distribution towards a better credit score.
+							</p>
+							<br>
+							<br>
+							<br>
+							<br>
+							<br>
+							<br>
+							<br>
+
+						
+					</div>
+					
+				</section>
+
+				<!-- Three -->
+				<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="exploratory-analysis">
+					<div class="content">
+						<h2>Relational Analysis</h2>
+						<p>The following section continues to visualise our bank customer data through comparing those who churned vs didnt.</p>
+						<ul class="actions stacked">
+							<li><a href="https://github.com/asthenia232/SepsisProject/blob/main/histogram.py" class="button" target="_blank">View Source Code</a></li>
+						</ul>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<p>To better understand what features predict a higher likelihood of customer attrition. Correlation and distribution were further examined using the following python and more.</p>
+					<p>
+						<pre class="code-container">
+						<code class="language-Python">
+	# Stacked bar plot for Number of Products vs. Churn
+	products_churn_cross = pd.crosstab(index=df['products_number'], columns=df['churn'])
+	products_churn_cross.plot(kind='bar', stacked=True, color=['lightblue', 'salmon'])
+	plt.title('Churn by Number of Products')
+	plt.xlabel('Number of Products')
+	plt.ylabel('Count')
+	plt.show()
+	
+	
+	# Cross-tabulation
+	gender_churn_cross = pd.crosstab(df['gender'], df['churn'])
+	plt.figure(figsize=(8, 6))
+	gender_churn_cross.plot(kind='bar', stacked=True, color=['lightblue', 'salmon'])
+	plt.title('Churn by Gender')
+	plt.xlabel('Gender')
+	plt.ylabel('Count')
+	plt.show()
+	
+	# Stacked bar plot for Gender and Credit Card vs. Churn
+	gender_credit_churn_cross = pd.crosstab(index=[df['gender'], df['credit_card']], columns=df['churn'])
+	gender_credit_churn_cross.plot(kind='bar', stacked=True, color=['lightblue', 'salmon'])
+	plt.title('Churn by Gender and Credit Card')
+	plt.xlabel('Gender, Credit Card', rotation=0)  # Rotate x-axis labels to be horizontal
+	plt.ylabel('Count')
+	plt.show()
+	
+	# Heatmap for selected numerical variable correlations
+	plt.figure(figsize=(10, 8))
+	selected_numerical_cols = ['age', 'balance', 'products_number', 'estimated_salary']
+	selected_corr_matrix = df[selected_numerical_cols].corr()
+	sns.heatmap(selected_corr_matrix, annot=True, cmap='coolwarm')
+	plt.title('Correlation Matrix for Selected Numerical Variables')
+	plt.show()
+						</code>
+						</pre>
+					</p>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<p> The following bar graphs show an increased likelihood of attrition among customers who use more than 2 products and females. </p>
+					<p class="image-container">
+							<img src="images/graph images/StackedChurnVSnumberofproducts.png" alt="churn_product"> 
+							<img src="images/graph images/ChurnCountByGender.png" alt="gender_churn">
+					</p>
+					<br>
+					<br>
+					<br>
+					<br>		
+					<p> Looking more closely at distribution of tenure and credit score, its plausible that the newest customers and oldest customers have an increased likelihood of attrition, seen through a much larger interquartile range. No significant differences between customers who have churned and haven't were seen when investigating credit scores.</p>
+							</p> 
+					<p class="image-container">
+						<img src="images/graph images/ChurnVsTenureBP.png" alt="churnvstenurebox">
+						<img src="images/graph images/ChurnCreditScoreBP.png" alt="churnvscreditbox">
+					</p>
+					<p> While comparing churn versus no churn in these variables can reveal crucial distinctions, the effectiveness of this analysis is enhanced by incorporating additional demographic variables. Let's revisit credit scores and tenure. Below is the code used for more comprehensive visualizations.</p>
+				
+					<p> 
+						<pre class="code-container">
+						<code class="language-Python">
+
+	# Distribution of Credit Scores for Churned and Not Churned customers
+	plt.figure(figsize=(12, 6))
+	sns.kdeplot(df[df['churn'] == 0]['credit_score'], label='Not Churned', shade=True)
+	sns.kdeplot(df[df['churn'] == 1]['credit_score'], label='Churned', shade=True)
+	plt.xlabel('Credit Score')
+	plt.ylabel('Density')
+	plt.title('Distribution of Credit Scores by Churn')
+	plt.legend()
+	plt.show()
+	
+	# Scatter plot of Tenure vs. Age with Hue by Churn
+	plt.figure(figsize=(12, 8))
+	sns.scatterplot(x='tenure', y='age', hue='churn', data=df, palette='coolwarm', alpha=0.7)
+	plt.title('Scatter Plot of Tenure vs. Age with Hue by Churn')
+	plt.xlabel('Tenure')
+	plt.ylabel('Age')
+	plt.show()
+
+						</code>
+					</pre>
+				</p>
+				<p class="image-with-text">
+					 <img src="images/graph images/OverlappedAreaDistCreditScoresChurn.png" alt="creditchurnvsnochurn"> <br> Looking at distribution in this way shows a subtle but potentially significant difference in credit scores of those who are churned, indicating a lower credit score is more associated with customers leaving the bank. . <br><br><br> </p>
+
+				<p class="image-with-text">
+					<img src="images/graph images/TenureAgeByChurnScatter.png" alt="creditchurnvsnochurn"> <br> When pairing tenure with age, we can now see that those between the age of 40 and 65 are more likely to churn. This association persist through years of tenure with the bank.   
+			   analysis of any longitudinal populations. </p>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+			
+				<br>
+				<br>
+				<p>A quick way of objectively checking some of these associations is through a correllation matrix. </p>
+				<p> 
+					<pre class="code-container">
+					<code class="language-Python">
+
+# Heatmap for selected numerical variable correlations
+plt.figure(figsize=(10, 8))
+selected_numerical_cols = ['age', 'balance', 'products_number', 'estimated_salary']
+selected_corr_matrix = df[selected_numerical_cols].corr()
+sns.heatmap(selected_corr_matrix, annot=True, cmap='coolwarm')
+plt.title('Correlation Matrix for Selected Numerical Variables')
+plt.show()
+
+					</code>
+				</pre>
+			</p>
+			<p class="image-with-text">
+				<img src="images/graph images/Figure_1.png" alt="creditchurnvsnochurn"> <br> Of the selected variables, we can see that the previous trend of age increase being associated with churn is replicated in the correlation matrix. </p>
+					
+				</div>
+				</section>
+				
+
+
+
+
+
+<!-- Four -->
+<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="Conclusion">
+	<div class="content">
+		<h2>Conclusion</h2>
+		<p>Though brief, this analysis outlined several factors associated with increased bank customer attrition. </p>
+		<ol>
+			<li>
+			  Increased age of the customer was associated with churn, this remained true regardless of tenure.
+			<li>
+			  A worse credit score was associated with increased churn.
+			<li>
+				Female customers were more likely to churn.
+			<li>
+				Using more than 2 products had a much higher likelihood of churning.
+			 
+			</li>
+		  </ol>
+			
+		</ul>
+	</div>
+	<div class="image">
+		<img src="images/spotlight03.jpg" alt="" />
+	</div>
+</section>
+
+<!-- Footer -->
+	<footer class="wrapper style1 align-center">
+		<div class="inner">
+			<ul class="icons">
+				<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="https://www.linkedin.com/in/josh-ireland-61b789217/" class="icon brands style2 fa-linkedin-in" target="_blank"><span class="label">LinkedIn</span></a></li>
+				<li><a href="https://github.com/asthenia232/" class="icon brands style2 fa-github" target="_blank"><span class="label">Email</span></a></li>
+				
+			</ul>
+		</div>
+	</footer>
+
+</div>
+
+<button id="scrollToTopBtn" class="scroll-to-top">↑</button>
+
+<!-- Scripts -->
+	
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/script.js"></script>
+	<script src="assets/js/prism.js"></script>
+	<script>
+		const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+	
+		// Show the button when user scrolls down
+		window.addEventListener('scroll', () => {
+			if (window.scrollY > 300) {
+				scrollToTopBtn.style.display = 'block';
+			} else {
+				scrollToTopBtn.style.display = 'none';
+			}
+		});
+	
+		// Scroll to top when button is clicked
+		scrollToTopBtn.addEventListener('click', () => {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		});
+	</script>
+		// Initialize Prism
+		Prism.highlightAll();
+	</script>
+	
+
+
+	</body>
+</html>
